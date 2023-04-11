@@ -1,0 +1,8 @@
+{
+  "token": {
+    "borderRadius": 12,
+    "wireframe": false,
+    "colorPrimary": "#50bfae",
+    "fontSize": 16
+  }
+}

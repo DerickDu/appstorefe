@@ -10,3 +10,7 @@
     padding: 15px; /* Some padding */
   
   }
+
+  #logo {
+    background-image: url("../Onlyapp.png");
+  }

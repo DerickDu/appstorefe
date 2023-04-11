@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Input, message } from "antd";
+import { Form, Button, Input, notification } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import SignupButton from "./SignupButton";
 import { login } from "../utils";
@@ -9,12 +9,24 @@ const LoginForm = ({ onLoginSuccess }) => {
 
   const handleFormSubmit = async (data) => {
     setLoading(true);
-
+    let placement = "topLeft";
     try {
       await login(data);
+
+      notification.success({
+        message: `Hello ${data.username}!`,
+        description: "Sign in Successfully 🎉",
+        duration: 2,
+        placement,
+      });
       onLoginSuccess();
     } catch (error) {
-      message.error(error.message);
+      notification.error({
+        message: `Sorry!`,
+        description: "Fail to Sign in 😭😭😭",
+        duration: 3,
+        placement,
+      });
     } finally {
       setLoading(false);
     }
